@@ -1,0 +1,18 @@
+CREATE TABLE `category` (
+	`category_id` int NOT NULL AUTO_INCREMENT,
+	`category_name` varchar(255) NOT NULL UNIQUE,
+	PRIMARY KEY (`category_id`)
+);
+
+CREATE TABLE `items` (
+	`category_id` int NOT NULL,
+	`id` bigint(11) NOT NULL,
+	`item_name` varchar(255) NOT NULL,
+	`model` varchar(255) NOT NULL,
+	`price` int(11) NOT NULL,
+	`image_dir` varchar(255) NOT NULL,
+	`description` varchar(255) NOT NULL
+);
+
+ALTER TABLE `items` ADD CONSTRAINT `items_fk0` FOREIGN KEY (`category_id`) REFERENCES `category`(`category_id`);
+
